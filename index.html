@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuizAdda - Azure Certification Practice Tests</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+    * { font-family: 'Inter', sans-serif; }
+    :root[data-theme="dark"] { 
+      --bg-primary: #060910; 
+      --bg-secondary: #0B0E1A; 
+      --bg-card: #111827; 
+      --text-primary: #FFFFFF; 
+      --text-secondary: #9CA3AF; 
+      --accent: #3B82F6; 
+      --border: #1F2937;
+      --gradient-1: #3B82F6;
+      --gradient-2: #8B5CF6;
+    }
+    :root[data-theme="light"] { 
+      --bg-primary: #F9FAFB; 
+      --bg-secondary: #FFFFFF; 
+      --bg-card: #FFFFFF; 
+      --text-primary: #111827; 
+      --text-secondary: #6B7280; 
+      --accent: #2563EB; 
+      --border: #E5E7EB;
+      --gradient-1: #2563EB;
+      --gradient-2: #7C3AED;
+    }
+    :root[data-theme="blue"] { 
+      --bg-primary: #082F49; 
+      --bg-secondary: #0C4A6E; 
+      --bg-card: #075985; 
+      --text-primary: #FFFFFF; 
+      --text-secondary: #BAE6FD; 
+      --accent: #0EA5E9; 
+      --border: #0369A1;
+      --gradient-1: #0EA5E9;
+      --gradient-2: #8B5CF6;
+    }
+    body { background: var(--bg-primary); color: var(--text-primary); }
+   .bg-theme-secondary { background: var(--bg-secondary); }
+   .bg-theme-card { background: var(--bg-card); }
+   .text-theme-secondary { color: var(--text-secondary); }
+   .border-theme { border-color: var(--border); }
+   .btn-accent { background: var(--accent); }
+   .gradient-text {
+     background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+     background-clip: text;
+   }
+   .card-hover {
+     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+   }
+   .card-hover:hover {
+     transform: translateY(-4px);
+     box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
+     border-color: var(--accent);
+   }
+   .logo-glow {
+     box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+   }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="flex justify-between items-center px-6 md:px-12 py-5 border-b border-theme sticky top-0 bg-theme-secondary/90 backdrop-blur-xl z-50">
+    <div class="flex items-center gap-4">
+      <div class="relative">
+        <div class="bg-gradient-to-br from-blue-500 to-purple-600 text-white font-black text-2xl w-14 h-14 rounded-2xl flex items-center justify-center shadow-lg logo-glow">
+          <i class="fa-solid fa-brain"></i>
+        </div>
+        <div class="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-theme-secondary"></div>
+      </div>
+      <div>
+        <div class="gradient-text font-black text-2xl leading-tight tracking-tight">QuizAdda</div>
+        <div class="text-theme-secondary text-xs font-medium">Master Azure Certifications</div>
+      </div>
+    </div>
+    <div class="flex gap-3 items-center">
+      <div class="hidden md:flex items-center gap-2 text-theme-secondary text-sm font-medium">
+        <i class="fa-solid fa-fire text-orange-500"></i>
+        <span>200+ Students</span>
+      </div>
+      <div class="flex bg-theme-card rounded-xl p-1.5 border border-theme shadow-lg">
+        <button onclick="setTheme('dark')" id="theme-dark" class="px-3 py-2 rounded-lg text-sm transition"><i class="fa-solid fa-moon"></i></button>
+        <button onclick="setTheme('light')" id="theme-light" class="px-3 py-2 rounded-lg text-sm transition"><i class="fa-solid fa-sun"></i></button>
+        <button onclick="setTheme('blue')" id="theme-blue" class="px-3 py-2 rounded-lg text-sm transition"><i class="fa-solid fa-droplet"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-24">
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center gap-2 bg-theme-card border border-theme rounded-full px-4 py-2 mb-6 shadow-lg">
+        <i class="fa-solid fa-bolt text-yellow-500"></i>
+        <span class="text-sm font-semibold">Most Popular Azure Tests</span>
+      </div>
+      
+      <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">
+        <span class="text-white">Azure Certification</span><br/>
+        <span class="gradient-text">Practice Tests</span>
+      </h1>
+      
+      <p class="text-theme-secondary text-lg md:text-xl max-w-2xl mx-auto mb-8 leading-relaxed">
+        Master Microsoft Azure with <span class="text-white font-semibold">200+ real exam-style questions</span>. 
+        Start your certification journey today with instant feedback & detailed explanations.
+      </p>
+
+      <div class="flex flex-wrap justify-center gap-6 text-sm">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-check-circle text-green-500"></i>
+          <span class="text-theme-secondary">Free Forever</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-check-circle text-green-500"></i>
+          <span class="text-theme-secondary">Real Exam Format</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-check-circle text-green-500"></i>
+          <span class="text-theme-secondary">Instant Results</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Exam Cards -->
+    <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+      
+      <!-- AZ-900 -->
+      <a href="AZ900_50_Quiz/q1.html" class="bg-theme-card rounded-3xl border-2 border-theme p-8 card-hover group">
+        <div class="flex items-start justify-between mb-6">
+          <div class="flex items-center gap-4">
+            <div class="bg-gradient-to-br from-blue-500 to-blue-600 text-white font-black text-2xl w-16 h-16 rounded-2xl flex items-center justify-center shadow-xl">
+              900
+            </div>
+            <div>
+              <div class="text-white font-black text-2xl mb-1">AZ-900</div>
+              <div class="text-theme-secondary text-sm">Azure Fundamentals</div>
+            </div>
+          </div>
+          <i class="fa-solid fa-arrow-right text-theme-secondary group-hover:text-blue-500 transition text-xl"></i>
+        </div>
+        <div class="flex gap-3">
+          <div class="flex items-center gap-2 bg-blue-500/10 text-blue-400 px-3 py-1.5 rounded-lg text-sm font-semibold">
+            <i class="fa-solid fa-book"></i>
+            <span>50 Questions</span>
+          </div>
+          <div class="flex items-center gap-2 bg-green-500/10 text-green-400 px-3 py-1.5 rounded-lg text-sm font-semibold">
+            <i class="fa-solid fa-signal"></i>
+            <span>Beginner</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- AZ-104 -->
+      <a href="AZ104_50_Quiz/q1.html" class="bg-theme-card rounded-3xl border-2 border-theme p-8 card-hover group">
+        <div class="flex items-start justify-between mb-6">
+          <div class="flex items-center gap-4">
+            <div class="bg-gradient-to-br from-cyan-500 to-blue-500 text-white font-black text-2xl w-16 h-16 rounded-2xl flex items-center justify-center shadow-xl">
+              104
+            </div>
+            <div>
+              <div class="text-white font-black text-2xl mb-1">AZ-104</div>
+              <div class="text-theme-secondary text-sm">Azure Administrator</div>
+            </div>
+          </div>
+          <i class="fa-solid fa-arrow-right text-theme-secondary group-hover:text-cyan-500 transition text-xl"></i>
+        </div>
+        <div class="flex gap-3">
+          <div class="flex items-center gap-2 bg-cyan-500/10 text-cyan-400 px-3 py-1.5 rounded-lg text-sm font-semibold">
+            <i class="fa-solid fa-book"></i>
+            <span>50 Questions</span>
+          </div>
+          <div class="flex items-center gap-2 bg-orange-500/10 text-orange-400 px-3 py-1.5 rounded-lg text-sm font-semibold">
+            <i class="fa-solid fa-signal"></i>
+            <span>Intermediate</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- AZ-500 -->
+      <a href="AZ-500_50Q/q1.html" class="bg-theme-card rounded-3xl border-2 border-theme p-8 card-hover group">
+        <div class="flex items-start justify-between mb-6">
+          <div class="flex items-center gap-4">
+            <div class="bg-gradient-to-br from-red-500 to-pink-500 text-white font-black text-2xl w-16 h-16 rounded-2xl flex items-center justify-center shadow-xl">
+              500
+            </div>
+            <div>
+              <div class="text-white font-black text-2xl mb-1">AZ-500</div>
+              <div class="text-theme-secondary text-sm">Security Engineer</div>
+            </div>
+          </div>
+          <i class="fa-solid fa-arrow-right text-theme-secondary group-hover:text-red-500 transition text-xl"></i>
+        </div>
+        <div class="flex gap-3">
+          <div class="flex items-center gap-2 bg-red-500/10 text-red-400 px-3 py-1.5 rounded-lg text-sm font-semibold">
+            <i class="fa-solid fa-book"></i>
+            <span>50 Questions</span>
+          </div>
+          <div class="flex items-center gap-2 bg-red-500/10 text-red-400 px-3 py-1.5 rounded-lg text-sm font-semibold">
+            <i class="fa-solid fa-signal"></i>
+            <span>Advanced</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- AZ-305 -->
+      <a href="AZ-305_50Q/q1.html" class="bg-theme-card rounded-3xl border-2 border-theme p-8 card-hover group">
+        <div class="flex items-start justify-between mb-6">
+          <div class="flex items-center gap-4">
+            <div class="bg-gradient-to-br from-purple-500 to-pink-500 text-white font-black text-2xl w-16 h-16 rounded-2xl flex items-center justify-center shadow-xl">
+              305
+            </div>
+            <div>
+              <div class="text-white font-black text-2xl mb-1">AZ-305</div>
+              <div class="text-theme-secondary text-sm">Solutions Architect</div>
+            </div>
+          </div>
+          <i class="fa-solid fa-arrow-right text-theme-secondary group-hover:text-purple-500 transition text-xl"></i>
+        </div>
+        <div class="flex gap-3">
+          <div class="flex items-center gap-2 bg-purple-500/10 text-purple-400 px-3 py-1.5 rounded-lg text-sm font-semibold">
+            <i class="fa-solid fa-book"></i>
+            <span>50 Questions</span>
+          </div>
+          <div class="flex items-center gap-2 bg-purple-500/10 text-purple-400 px-3 py-1.5 rounded-lg text-sm font-semibold">
+            <i class="fa-solid fa-signal"></i>
+            <span>Expert</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-theme mt-20 py-8">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 text-center text-theme-secondary text-sm">
+      <p>© 2026 QuizAdda. Built for Azure learners worldwide. 🚀</p>
+    </div>
+  </footer>
+
+  <script>
+    function setTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('quizadda_theme', theme);
+      document.querySelectorAll('[id^="theme-"]').forEach(btn => btn.classList.remove('bg-blue-500', 'text-white'));
+      const activeBtn = document.getElementById('theme-' + theme);
+      if(activeBtn) activeBtn.classList.add('bg-blue-500', 'text-white');
+    }
+    const savedTheme = localStorage.getItem('quizadda_theme') || 'dark';
+    setTheme(savedTheme);
+  </script>
+
+</body>
+</html>
